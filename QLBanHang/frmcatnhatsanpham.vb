@@ -42,40 +42,52 @@
 
     'thêm
     Private Sub btnthem_Click(sender As Object, e As EventArgs) Handles btnthem.Click
-        Dim sql As String =
-            <sql>
+        If txtmasp.Text = "" Or txtdongia.Text = "" Or txtmasp.Text = "" Or txttensp.Text = "" Or lblmaloai.Text = "" Then
+            MessageBox.Show("Vui lòng nhập đầy đủ thông tin")
+        Else
+            Dim sql As String =
+           <sql>
                 insert into San_Pham (MaSP, TenSP, DonGia, DonViTinh, MaLoai)
                 values ('{0}', N'{1}','{2}','{3}','{4}')
             </sql>
-        sql = String.Format(sql, txtmasp.Text, txttensp.Text, txtdongia.Text, txtdonvitinh.Text, lblmaloai.Text)
-        excute(sql)
-        thucthi1()
+            sql = String.Format(sql, txtmasp.Text, txttensp.Text, txtdongia.Text, txtdonvitinh.Text, lblmaloai.Text)
+            excute(sql)
+            thucthi1()
+        End If
     End Sub
 
 
     'xóa
     Private Sub btnxoa_Click(sender As Object, e As EventArgs) Handles btnxoa.Click
-        Dim sql As String =
-            <sql>
+        If txtmasp.Text = "" Then
+            MessageBox.Show("Vui lòng nhập mã sản phẩm")
+        Else
+            Dim sql As String =
+          <sql>
                 delete from San_Pham
                 where MaSP = '{0}'
             </sql>
-        sql = String.Format(sql, txtmasp.Text)
-        excute(sql)
-        thucthi1()
+            sql = String.Format(sql, txtmasp.Text)
+            excute(sql)
+            thucthi1()
+        End If
+      
     End Sub
-
     'sửa
     Private Sub btnsua_Click(sender As Object, e As EventArgs) Handles btnsua.Click
-        Dim sql As String =
-            <sql>
+        If txtmasp.Text = "" Then
+            MessageBox.Show("Vui lòng nhập mã sản phẩm")
+        Else
+            Dim sql As String =
+                <sql>
                 update San_Pham
                 set TenSP = N'{1}', DonGia = '{2}', DonViTinh = N'{3}', MaLoai = '{4}'
                 where MaSP = '{0}'
             </sql>
-        sql = String.Format(sql, txtmasp.Text, txttensp.Text, txtdongia.Text, txtdonvitinh.Text, lblmaloai.Text)
-        excute(sql)
-        thucthi1()
+            sql = String.Format(sql, txtmasp.Text, txttensp.Text, txtdongia.Text, txtdonvitinh.Text, lblmaloai.Text)
+            excute(sql)
+            thucthi1()
+        End If
     End Sub
 
 

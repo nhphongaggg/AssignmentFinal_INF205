@@ -11,13 +11,10 @@
         bs.ResetBindings(False)
     End Sub
 
-  
-
     Private Sub dgv4_SelectionChanged(sender As Object, e As EventArgs) Handles dgv4.SelectionChanged
         Try
             Dim bsrow As DataRowView = bs.Current
             Dim row As DataRow = bsrow.Row
-
             txtmasp.Text = row("MaSP")
             txttensp.Text = row("TenSP")
             txtdongia.Text = row("DonGia")
@@ -27,8 +24,6 @@
         End Try
 
     End Sub
-
-
 
     Private Sub btnquaylai_Click(sender As Object, e As EventArgs) Handles btnquaylai.Click
         frmtong.Show()
